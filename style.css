@@ -12,6 +12,12 @@
 body {
     font-family: 'Kiwi Maru',sans-serif;
     margin: 0;
+    transition: transform 0.3s ease;
+}
+
+body.show-nav {
+    /* Width of nav*/
+    transform: translate(200px);
 }
 
 nav {
@@ -114,7 +120,11 @@ button, input[type="submit"]{
     bottom: 0;
 }
 
-.modal{
+.modal-container.show-modal {
+    display: block;
+}
+
+.modal {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -125,6 +135,8 @@ button, input[type="submit"]{
     transform: translate(-50%, -50%);
     max-width: 100%;
     width: 400px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
 }
 
 .modal-header {
@@ -163,4 +175,14 @@ button, input[type="submit"]{
     position: absolute;
     top: 0;
     right: 0;
+}
+
+@keyframes modalopen{
+    from {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
 }
